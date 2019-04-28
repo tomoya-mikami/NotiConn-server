@@ -1,4 +1,4 @@
-import Express from 'express';
+import * as Express from 'express';
 import event from './handler/event';
 const app = Express();
 const router = Express.Router();
