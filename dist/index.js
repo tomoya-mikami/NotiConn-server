@@ -7,7 +7,9 @@ const express_1 = __importDefault(require("express"));
 const app = express_1.default();
 const router = express_1.default.Router();
 router.get('/', (req, res) => {
-    return res.send('Hello world.');
+    console.log("hogehoge");
+    res.send('Hello world.');
+    return;
 });
 app.listen(3000, () => {
     console.log('Example app listening on port 3000!');
