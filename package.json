@@ -2,13 +2,14 @@
   "name": "noticonn",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/bundle.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node src/index.ts",
     "dev:watch": "ts-node-dev --respawn src/index.ts",
     "start": "node .",
-    "build": "webpack"
+    "build": "webpack",
+    "gulp": "gulp"
   },
   "author": "",
   "license": "ISC",

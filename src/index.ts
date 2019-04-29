@@ -1,7 +1,6 @@
-import * as Express from 'express';
+import Express = require('express');
 import event from './handler/event';
 const app = Express();
-const router = Express.Router();
 
 app.use('/event', event);
 

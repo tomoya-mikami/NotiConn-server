@@ -106,7 +106,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nexports.__esModule = true;\nvar Express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nvar event_1 = __webpack_require__(/*! ./handler/event */ \"./dist/handler/event.js\");\nvar app = Express();\nvar router = Express.Router();\napp.use('/event', event_1[\"default\"]);\napp.listen(3000, function () {\n    console.log('Example app listening on port 3000!');\n});\nexports[\"default\"] = app;\n\n\n//# sourceURL=webpack:///./dist/index.js?");
+eval("\nexports.__esModule = true;\nvar Express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nvar event_1 = __webpack_require__(/*! ./handler/event */ \"./dist/handler/event.js\");\nvar app = Express();\napp.use('/event', event_1[\"default\"]);\napp.listen(3000, function () {\n    console.log('Example app listening on port 3000!');\n});\nexports[\"default\"] = app;\n\n\n//# sourceURL=webpack:///./dist/index.js?");
 
 /***/ }),
 
