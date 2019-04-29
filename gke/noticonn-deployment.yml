@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: noticonn-pod
-        image: gcr.io/noticonn/server-images:latest
+        image: gcr.io/noticonn/server-images:$SHA1
         ports:
         - containerPort: 80
