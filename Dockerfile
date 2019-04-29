@@ -1,17 +1,15 @@
-FROM alpine:latest as builder
-COPY package.json .
+FROM node:10.15-alpine as builder
+COPY package.json ./
 COPY dist/ dist/
-COPY gulpfile.js .
-COPY webpack.config.js .
-COPY tsconfig.json .
-RUN apk --update add nodejs-npm
-RUN apk add --no-cache nodejs
-RUN npm install
-RUN npm run gulp
+COPY gulpfile.js ./
+COPY webpack.config.js ./
+COPY tsconfig.json ./
+RUN npm install && \
+    npm run gulp
 
-FROM alpine:latest as runner
+FROM alpine:3.9
 ADD package.json .
 COPY --from=builder dist/bundle.min.js dist/bundle.min.js
-RUN apk update
-RUN apk add nodejs nodejs-npm
-CMD [ "npm", "run", "start" ]
+RUN apk update && \
+    apk add nodejs nodejs-npm
+CMD [ "npm", "start" ]
