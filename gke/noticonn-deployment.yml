@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: noticonn
-        image: gcr.io/noticonn/server-images
+        image: gcr.io/noticonn/server-images:latest
         ports:
         - containerPort: 80

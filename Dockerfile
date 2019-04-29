@@ -12,5 +12,6 @@ RUN npm run gulp
 FROM alpine:latest as runner
 ADD package.json .
 COPY --from=builder dist/bundle.min.js dist/bundle.min.js
-RUN apk add --update nodejs nodejs-npm
-CMD ["npm" "run" "start"]
+RUN apk update
+RUN apk add nodejs nodejs-npm
+CMD [ "npm", "run", "start" ]
