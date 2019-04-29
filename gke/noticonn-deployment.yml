@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: noticonn-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: noticonn
+  template:
+    metadata:
+      labels:
+        app: noticonn
+    spec:
+      containers:
+      - name: noticonn
+        image: gcr.io/noticonn/server-images
+        ports:
+        - containerPort: 80

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: noticonn-service
+spec:
+  selector:
+    app: metrics
+    department: engineering
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 3000
