@@ -1,6 +1,7 @@
 FROM node:10.15-alpine as builder
+RUN mkdir ./dist
 COPY package.json ./
-COPY dist/ dist/
+COPY src/ src/
 COPY gulpfile.js ./
 COPY webpack.config.js ./
 COPY tsconfig.json ./

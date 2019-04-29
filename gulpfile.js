@@ -9,11 +9,12 @@ const typescript = require('gulp-typescript');
 
 gulp.task('ts', function () {
     return gulp.src([
-        './src/*.ts',
+        './src/**/*.ts',
         '!./node_modules/**'
     ])
+        .pipe(plumber())
         .pipe(typescript())
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task("webpack", () => {

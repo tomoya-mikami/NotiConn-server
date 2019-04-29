@@ -2,7 +2,6 @@ version: "2"
 services:
   server:
     build: ./
-    image: noticonn-image
     container_name: server
     ports:
       - 3000:3000

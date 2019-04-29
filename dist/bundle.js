@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst express_1 = __importDefault(__webpack_require__(/*! express */ \"./node_modules/express/index.js\"));\nconst router = express_1.default.Router();\nrouter.get('/', (req, res) => {\n    res.send('hallo!!!!!!!!!!!!!');\n});\nexports.default = router;\n//# sourceMappingURL=event.js.map\n\n//# sourceURL=webpack:///./dist/handler/event.js?");
+eval("\nexports.__esModule = true;\nvar Express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nvar router = Express.Router();\nrouter.get('/', function (req, res) {\n    res.json({\n        message: \"hello!!!!!!\"\n    });\n});\nexports[\"default\"] = router;\n\n\n//# sourceURL=webpack:///./dist/handler/event.js?");
 
 /***/ }),
 

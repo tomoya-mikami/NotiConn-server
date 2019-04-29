@@ -1,6 +1,15 @@
 PROJECT_ID = noticonn
 TAG_NAME = $(shell git rev-parse --short HEAD)
 
+.PHONY: run
+run: gulp compose/up
+
+.PHONY: gulp
+	npm run gulp
+
+.PHONY: compose/up
+	docker-compose up -d
+
 .PHONY: deploy
 deploy: deploy/gcr deploy/gke
 
