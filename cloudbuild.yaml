@@ -1,4 +1,19 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '--tag=gcr.io/$PROJECT_ID/server-images:$_TAG', '.']
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: 'Apply Deployment Manifest'
+  args: ['apply', '-f', 'gke/noticonn-deployment.yml']
+  env:
+    - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=noticonn-cluster'
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: 'Apply Service Manifest'
+  args: ['apply', '-f', 'gke/noticonn-service.yml']
+  env:
+    - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-a'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=noticonn-cluster'
+
 images: ['gcr.io/$PROJECT_ID/server-images']

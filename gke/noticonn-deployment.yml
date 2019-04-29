@@ -3,17 +3,14 @@ kind: Deployment
 metadata:
   name: noticonn-deployment
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: noticonn
+  replicas: 2
   template:
     metadata:
       labels:
-        app: noticonn
+        app: noticonn-app
     spec:
       containers:
-      - name: noticonn
+      - name: noticonn-pod
         image: gcr.io/noticonn/server-images:latest
         ports:
         - containerPort: 80
