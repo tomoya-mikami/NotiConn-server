@@ -3,6 +3,8 @@ services:
   server:
     build: ./
     container_name: server
+    volumes:
+      - ./dist/bundle.min.js:/dist/bundle.min.js
     ports:
       - 3000:3000
     tty: true

@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nexports.__esModule = true;\nvar Express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nvar router = Express.Router();\nrouter.get('/', function (req, res) {\n    res.json({\n        message: \"hello!!!!!!\"\n    });\n});\nexports[\"default\"] = router;\n\n\n//# sourceURL=webpack:///./dist/handler/event.js?");
+eval("\nexports.__esModule = true;\nvar Express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nvar router = Express.Router();\nrouter.get('/', function (req, res) {\n    res.json({\n        message: \"see you!\"\n    });\n});\nexports[\"default\"] = router;\n\n\n//# sourceURL=webpack:///./dist/handler/event.js?");
 
 /***/ }),
 
@@ -106,7 +106,7 @@ eval("\nexports.__esModule = true;\nvar Express = __webpack_require__(/*! expres
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nexports.__esModule = true;\nvar Express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nvar event_1 = __webpack_require__(/*! ./handler/event */ \"./dist/handler/event.js\");\nvar app = Express();\napp.use('/event', event_1[\"default\"]);\napp.listen(3000, function () {\n    console.log('Example app listening on port 3000!');\n});\nexports[\"default\"] = app;\n\n\n//# sourceURL=webpack:///./dist/index.js?");
+eval("\nexports.__esModule = true;\nvar Express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nvar event_1 = __webpack_require__(/*! ./handler/event */ \"./dist/handler/event.js\");\nvar app = Express();\napp.all('*', function (req, res, next) {\n    res.header(\"Access-Control-Allow-Origin\", \"*\");\n    res.header(\"Access-Control-Allow-Headers\", \"Origin, X-Requested-With, Content-Type, Accept\");\n    console.log(\"allow cors\");\n    next();\n});\napp.use('/event', event_1[\"default\"]);\napp.listen(3000, function () {\n    console.log('Example app listening on port 3000!');\n});\nexports[\"default\"] = app;\n\n\n//# sourceURL=webpack:///./dist/index.js?");
 
 /***/ }),
 
