@@ -7,7 +7,8 @@ router.get("/", async (req: Express.Request, res: Express.Response) => {
   const options = {
     uri: baseUrl,
     qs: {
-      count: 100
+      count: 100,
+      order: 3
     },
     json: true
   };
