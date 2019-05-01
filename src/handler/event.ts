@@ -6,9 +6,13 @@ router.get("/", async (req: Express.Request, res: Express.Response) => {
   const baseUrl: string = "https://connpass.com/api/v1/event";
   const options = {
     uri: baseUrl,
+    method: "GET",
     qs: {
       count: 100,
       order: 3
+    },
+    headers: {
+      "User-Agent": "Request-Promise"
     },
     json: true
   };
