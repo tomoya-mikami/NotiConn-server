@@ -28,8 +28,7 @@ compose/logs:
 	docker-compose logs -f
 
 .PHONY: deploy
-deploy:
-	deploy/gcr deploy/gke
+deploy: gulp deploy/gcr deploy/gke
 
 .PHONY: deploy/gcr
 deploy/gcr:
