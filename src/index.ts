@@ -1,5 +1,5 @@
 import Express = require("express");
-import event from "./handler/event";
+import event from "./router/event";
 const app = Express();
 
 app.all("*", (req, res, next) => {
