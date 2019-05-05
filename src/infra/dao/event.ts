@@ -2,9 +2,11 @@ import rp = require("request-promise");
 import { EventRepo } from "../../domain/repositories/event";
 import { EventModel } from "../../domain/models/event";
 import * as ES from "elasticsearch";
+import * as TypeOrmConnection } from "typeorm";
 import * as EventEntity from "../entity/event";
 
 export type EventDB = {
+  es: ES.Client;
   db: ES.Client;
 };
 

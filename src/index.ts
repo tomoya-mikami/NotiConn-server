@@ -1,4 +1,5 @@
 import Express = require("express");
+import "reflect-metadata";
 import event from "./router/event";
 const app = Express();
 

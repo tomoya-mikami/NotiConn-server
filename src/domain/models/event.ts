@@ -1,5 +1,3 @@
-import { GroupModel } from "./group";
-
 export type EventModel = {
   event_id: number;
   title: string;

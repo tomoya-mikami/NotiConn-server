@@ -10,65 +10,13 @@ services:
       - $SERVER_PORT:3000
     tty: true
     depends_on:
-      - elasticsearch
+      - db
 
-#   elasticsearch:
-#     # build: ./elasticsearch
-#     image: docker.elastic.co/elasticsearch/elasticsearch:7.0.0
-#     container_name: es
-#     env_file: .env
-#     environment:
-#       - xpack.security.enabled=false
-#       - transport.host=localhost
-#     ports:
-#       - $ES_PORT:9200
-#     volumes:
-#       - ./elasticsearch/data:/usr/share/elasticsearch/data
-#     networks:
-#       - esnet
-
-#   kibana:
-#     # build: ./kibana
-#     image: docker.elastic.co/kibana/kibana:7.0.0
-#     container_name: kibana
-#     env_file: .env
-#     ports:
-#       - $KIBANA_PORT:5601
-#     # environment:
-#     #   - ELASTICSEARCH_URL=http://$ES_HOST:$ES_PORT
-#     depends_on:
-#       - elasticsearch
-#     networks:
-#       - esnet
-
-# networks:
-#   esnet:
-
-  # Elasticsearchノード
-  elasticsearch:
-    build: ./elasticsearch
-    container_name: es
+  # db
+  db:
+    build: ./db
+    container_name: db
     env_file: .env
-    environment:
-      - xpack.security.enabled=false
-      - transport.host=localhost
-    volumes:
-      - ./elasticsearch/es-data:/usr/share/elasticsearch/data
+    restart: always
     ports:
-      - $ES_PORT:9200
-      - 9300:9300
-
-  # kibana: Elasticsearchのデータを可視化するウェブアプリ
-  # kibana:
-  #   build: ./kibana
-  #   container_name: kibana
-  #   env_file: .env
-  #   # image: docker.elastic.co/kibana/kibana:7.0.0 # https://www.elastic.co/guide/en/kibana/current/docker.html
-  #   volumes:
-  #     - ./kibana/kibana.yml:/etc/kibana/kibana.yml
-  #   # environment:
-  #   #   - ELASTICSEARCH_URL=http://$ES_HOST:$ES_PORT
-  #   ports:
-  #     - 5601:5601
-  #   depends_on:
-  #     - elasticsearch
+      - 3306:3306

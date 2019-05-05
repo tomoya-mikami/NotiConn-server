@@ -1,5 +1,4 @@
 import { EventModel } from "../../domain/models/event";
-import { GroupModel } from "../../domain/models/group";
 
 export function Write(
   event_id: number,
